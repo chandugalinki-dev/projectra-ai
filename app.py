@@ -105,4 +105,5 @@ def recommendation_page():
 
 # Ruuning the server
 if __name__=='__main__':
-    app.run(debug=True)   # auto_restart server and for showing the errors
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port,debug=True)   # auto_restart server and for showing the errors
