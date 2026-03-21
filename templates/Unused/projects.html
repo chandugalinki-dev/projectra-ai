@@ -1,0 +1,7 @@
+<h1>Projects - {{ course }}</h1>
+
+{% for project in projects %}
+    <a href="/roadmap/{{ degree }}/{{ course }}/{{ loop.index0 }}">
+        {{ project.title }}
+    </a><br>
+{% endfor %}

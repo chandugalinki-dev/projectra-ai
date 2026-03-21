@@ -1,0 +1,1106 @@
+[
+  {
+    "id": 1,
+    "title": "Student Performance Prediction",
+    "description": "Predict student marks based on study hours, attendance, and past scores",
+    "dataset": "UCI Student Performance Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "Jupyter"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Random Forest",
+      "Linear Regression"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 2,
+    "title": "House Price Prediction",
+    "description": "Predict house prices using location, size, and features",
+    "dataset": "Kaggle House Prices Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Scikit-learn"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Linear Regression",
+      "XGBoost"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 3,
+    "title": "Fake News Detection",
+    "description": "Classify news as real or fake",
+    "dataset": "Kaggle Fake News Dataset",
+    "tools": [
+      "Python",
+      "NLP",
+      "Scikit-learn",
+      "NLTK"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Naive Bayes",
+      "Logistic Regression"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 4,
+    "title": "Movie Recommendation System",
+    "description": "Recommend movies based on user ratings",
+    "dataset": "MovieLens Dataset",
+    "tools": [
+      "Python",
+      "Surprise Library",
+      "Pandas"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Collaborative Filtering",
+      "KNN"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 5,
+    "title": "Spam Email Detection",
+    "description": "Detect spam emails automatically",
+    "dataset": "Spam Email Dataset (UCI)",
+    "tools": [
+      "Python",
+      "NLP",
+      "Scikit-learn"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Naive Bayes"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 6,
+    "title": "Customer Churn Prediction",
+    "description": "Predict whether a customer will leave service",
+    "dataset": "Telco Customer Churn Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Random Forest",
+      "Logistic Regression"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 7,
+    "title": "Credit Card Fraud Detection",
+    "description": "Detect fraudulent transactions",
+    "dataset": "Kaggle Credit Card Fraud Dataset",
+    "tools": [
+      "Python",
+      "Scikit-learn"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Isolation Forest",
+      "Logistic Regression"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 8,
+    "title": "Handwritten Digit Recognition",
+    "description": "Recognize handwritten digits",
+    "dataset": "MNIST Dataset",
+    "tools": [
+      "Python",
+      "TensorFlow/Keras"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "CNN"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 9,
+    "title": "Face Mask Detection",
+    "description": "Detect whether a person wears a mask",
+    "dataset": "Custom Image Dataset",
+    "tools": [
+      "Python",
+      "OpenCV",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "CNN"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 10,
+    "title": "Traffic Sign Recognition",
+    "description": "Recognize road signs",
+    "dataset": "GTSRB Dataset",
+    "tools": [
+      "Python",
+      "TensorFlow",
+      "OpenCV"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "CNN"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 11,
+    "title": "Sentiment Analysis on Tweets",
+    "description": "Classify tweets as positive or negative",
+    "dataset": "Twitter Sentiment Dataset",
+    "tools": [
+      "Python",
+      "NLTK",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "LSTM",
+      "Naive Bayes"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 12,
+    "title": "Chatbot for College Queries",
+    "description": "Answer student questions automatically",
+    "dataset": "Custom FAQ Dataset",
+    "tools": [
+      "Python",
+      "Rasa / NLTK"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "NLP",
+      "Intent Classification"
+    ],
+    "level": "Advanced"
+  },
+  {
+    "id": 13,
+    "title": "Crop Recommendation System",
+    "description": "Recommend crops based on soil and weather",
+    "dataset": "Agriculture Dataset (Kaggle)",
+    "tools": [
+      "Python",
+      "Pandas"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Decision Tree",
+      "Random Forest"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 14,
+    "title": "Weather Prediction",
+    "description": "Predict future weather conditions",
+    "dataset": "Weather Dataset",
+    "tools": [
+      "Python",
+      "Scikit-learn"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Regression Models"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 15,
+    "title": "Disease Prediction System",
+    "description": "Predict disease from symptoms",
+    "dataset": "Healthcare Dataset",
+    "tools": [
+      "Python",
+      "Pandas"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Decision Tree"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 16,
+    "title": "Stock Price Prediction",
+    "description": "Predict stock trends",
+    "dataset": "Yahoo Finance Data",
+    "tools": [
+      "Python",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "LSTM"
+    ],
+    "level": "Advanced"
+  },
+  {
+    "id": 17,
+    "title": "Image Classification System",
+    "description": "Classify images into categories",
+    "dataset": "CIFAR-10 Dataset",
+    "tools": [
+      "Python",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "CNN"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 18,
+    "title": "Resume Screening System",
+    "description": "Automatically shortlist resumes",
+    "dataset": "Resume Dataset",
+    "tools": [
+      "Python",
+      "NLP",
+      "Scikit-learn"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "NLP Classification"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 19,
+    "title": "Language Translation Model",
+    "description": "Translate text between languages",
+    "dataset": "Parallel Text Dataset",
+    "tools": [
+      "Python",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Seq2Seq",
+      "Transformer"
+    ],
+    "level": "Advanced"
+  },
+  {
+    "id": 20,
+    "title": "Object Detection System",
+    "description": "Detect objects in images",
+    "dataset": "COCO Dataset",
+    "tools": [
+      "Python",
+      "OpenCV",
+      "PyTorch"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "YOLO"
+    ],
+    "level": "Advanced"
+  },
+  {
+    "id": 21,
+    "title": "AIML Application Project 21",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 22,
+    "title": "AIML Application Project 22",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 23,
+    "title": "AIML Application Project 23",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 24,
+    "title": "AIML Application Project 24",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 25,
+    "title": "AIML Application Project 25",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 26,
+    "title": "AIML Application Project 26",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 27,
+    "title": "AIML Application Project 27",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 28,
+    "title": "AIML Application Project 28",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 29,
+    "title": "AIML Application Project 29",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 30,
+    "title": "AIML Application Project 30",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 31,
+    "title": "AIML Application Project 31",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 32,
+    "title": "AIML Application Project 32",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 33,
+    "title": "AIML Application Project 33",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 34,
+    "title": "AIML Application Project 34",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 35,
+    "title": "AIML Application Project 35",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 36,
+    "title": "AIML Application Project 36",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 37,
+    "title": "AIML Application Project 37",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 38,
+    "title": "AIML Application Project 38",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 39,
+    "title": "AIML Application Project 39",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 40,
+    "title": "AIML Application Project 40",
+    "description": "Build an AI model to analyze data and generate predictions",
+    "dataset": "Kaggle / UCI Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem Definition",
+      "Dataset Collection",
+      "Data Preprocessing",
+      "Exploratory Data Analysis",
+      "Model Selection",
+      "Model Training",
+      "Model Evaluation",
+      "Result Visualization / Deployment"
+    ],
+    "expected_output": "A trained machine learning model that predicts results and displays performance metrics such as accuracy, precision, or visualization graphs",
+    "domain": "AIML",
+    "algorithms": [
+      "Machine Learning / Deep Learning Algorithm"
+    ],
+    "level": "Beginner"
+  }
+]

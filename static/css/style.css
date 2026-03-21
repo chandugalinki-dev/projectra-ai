@@ -1,0 +1,854 @@
+/* ================================================================
+   style.css — All visual styles for Projectra AI
+   COLOR PALETTE (from sample image):
+   Background  : warm olive/khaki  #b5a882 to #8a7d5e
+   Text dark   : near-black        #2a2416
+   Accent      : muted warm brown  #6b5d3f
+================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* ----------------------------------------------------------------
+   RESET — Remove default browser spacing from all elements
+---------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ----------------------------------------------------------------
+   BODY — Warm olive/khaki background from sample image
+---------------------------------------------------------------- */
+body {
+  background: linear-gradient(135deg, #9e9270 0%, #b5a882 40%, #a89870 70%, #8a7d5e 100%);
+  color: #2a2416;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ================================================================
+   HOME SECTION
+================================================================ */
+#home {
+  position: relative;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06) 0%, transparent 50%);
+}
+
+/* ----------------------------------------------------------------
+   NAVBAR
+---------------------------------------------------------------- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 60px;
+  background: transparent;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2a2416;
+  cursor: pointer;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.logo:hover { color: #6b5d3f; }
+
+.menu {
+  display: flex;
+  gap: 35px;
+}
+
+.menu a {
+  color: #3d3526;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: #6b5d3f;
+  font-weight: 600;
+}
+
+.signup-btn {
+  background: transparent;
+  color: #2a2416;
+  border: 1.5px solid #2a2416;
+  padding: 8px 22px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  transition: 0.3s;
+}
+
+.signup-btn:hover {
+  background: #2a2416;
+  color: #b5a882;
+}
+
+/* ----------------------------------------------------------------
+   HERO SECTION
+---------------------------------------------------------------- */
+.hero {
+  text-align: center;
+  padding-top: 130px;
+  padding-bottom: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+  animation: fadeUp 1s ease;
+}
+
+/* ----------------------------------------------------------------
+   HERO TITLE — Two-part styled heading like the sample image:
+   "Welcome to"   = thin italic serif (faded, left side of sample)
+   "Projectra AI" = bold serif (strong dark, right side of sample)
+---------------------------------------------------------------- */
+.hero-title {
+  font-size: 72px;
+  line-height: 1.1;
+  margin-bottom: 28px;
+}
+
+/* "Welcome to" — thin, italic, faded. Uses Playfair Display for elegance */
+.welcome-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(42, 36, 22, 0.42);
+}
+
+/* "Projectra AI" — bold, strong, dark. Same serif for visual unity */
+.brand-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #2a2416;
+}
+
+.hero-desc {
+  font-size: 16px;
+  color: #3d3526;
+  line-height: 1.9;
+  max-width: 560px;
+  margin: 0 auto 18px auto;
+  font-weight: 300;
+}
+
+.hero-tagline {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #e9e9e9;
+  opacity: 0.7;
+  text-transform: uppercase;
+  margin-bottom: 34px;
+}
+
+/* "Let's Make!" button — dark pill matching sample's SHOP NOW */
+.lets-make-btn {
+  background: #2a2416;
+  color: #b5a882;
+  border: none;
+  padding: 15px 52px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  transition: 0.3s;
+}
+
+.lets-make-btn:hover {
+  background: #3d3526;
+  transform: scale(1.05);
+}
+
+/* ================================================================
+   INNER PAGES — All pages except home
+================================================================ */
+.page {
+  display: none;
+  padding: 0;
+  margin: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.page[style*="display: block"],
+.page[style*="display: flex"] {
+  height: auto;
+  min-height: 100vh;
+  padding: 0 0 60px 0;
+}
+
+/* ----------------------------------------------------------------
+   INNER NAVBAR — Logo LEFT | Back button RIGHT
+   Back button is always visible at top — no scrolling needed!
+---------------------------------------------------------------- */
+.inner-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 60px;
+  background: rgba(42, 36, 22, 0.08);
+  border-bottom: 1px solid rgba(42, 36, 22, 0.12);
+  margin-bottom: 40px;
+}
+
+.page h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2a2416;
+  padding: 0 60px;
+  margin-bottom: 8px;
+  font-family: 'Playfair Display', serif;
+}
+
+.page > p {
+  padding: 0 60px;
+  color: #3d3526;
+  opacity: 0.75;
+  font-size: 15px;
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+/* ----------------------------------------------------------------
+   BACK BUTTON — Inside inner-nav at top right
+---------------------------------------------------------------- */
+.back-btn {
+  padding: 8px 20px;
+  background: transparent;
+  color: #2a2416;
+  border: 1.5px solid #2a2416;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.back-btn:hover {
+  background: #2a2416;
+  color: #b5a882;
+}
+
+/* ================================================================
+   PROJECTS PAGE
+================================================================ */
+.filter-buttons {
+  display: flex;
+  gap: 12px;
+  padding: 20px 60px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 24px;
+  background: transparent;
+  color: #2a2416;
+  border: 1.5px solid rgba(42, 36, 22, 0.35);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  transition: 0.3s;
+}
+
+.filter-btn.active {
+  background: #2a2416;
+  color: #b5a882;
+  border-color: #2a2416;
+  font-weight: 600;
+}
+
+.filter-btn:hover { background: rgba(42, 36, 22, 0.1); }
+
+.coming-soon-box {
+  margin: 30px 60px;
+  padding: 70px 20px;
+  background: rgba(42, 36, 22, 0.06);
+  border: 1px dashed rgba(42, 36, 22, 0.25);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.coming-soon-box p {
+  font-size: 22px;
+  padding: 0;
+  color: #3d3526;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.coming-soon-box small {
+  color: #6b5d3f;
+  opacity: 0.6;
+  font-size: 13px;
+} 
+
+.title-caps {
+  text-transform: uppercase;
+}
+
+/* ================================================================
+   DEGREE PAGE
+================================================================ */
+.degree-subtitle {
+  padding: 0 60px !important;
+  margin-top: 10px !important;
+  margin-bottom: 20px !important;
+  font-size: 14px !important;
+  color: #6b5d3f !important;
+  opacity: 1 !important;
+  font-weight: 500 !important;
+}
+
+.degree-list {
+  padding: 0 60px;
+  max-width: 860px;
+}
+
+/* <details> = collapsible — browser opens/closes it, no JS needed */
+.degree-item {
+  background: rgba(255, 255, 255, 0.32);
+  border: 1px solid rgba(42, 36, 22, 0.15);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.degree-item:hover {
+  border-color: rgba(42, 36, 22, 0.4);
+  background: rgba(255, 255, 255, 0.48);
+}
+
+/* <summary> = the clickable heading row */
+.degree-item summary {
+  padding: 14px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2a2416;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+}
+
+/* Custom arrow — replaces the default browser triangle */
+.degree-item summary::after {
+  content: "▼";
+  font-size: 11px;
+  opacity: 0.4;
+  transition: 0.3s;
+}
+
+/* Rotate arrow when open */
+.degree-item[open] summary::after { transform: rotate(180deg); }
+
+/* B.Tech highlight */
+.btech-item {
+  border-color: rgba(42, 36, 22, 0.3);
+  background: rgba(255, 255, 255, 0.48);
+}
+
+.btech-item summary {
+  color: #2a2416;
+  font-weight: 700;
+}
+
+.degree-content {
+  padding: 16px 20px;
+  border-top: 1px solid rgba(42, 36, 22, 0.1);
+  animation: fadeUp 0.3s ease;
+}
+
+.coming-soon-small {
+  font-size: 14px;
+  color: #6b5d3f;
+  opacity: 0.6;
+  font-style: italic;
+}
+
+.course-label {
+  font-size: 13px;
+  color: #3d3526;
+  opacity: 0.75;
+  margin-bottom: 14px;
+}
+
+.course-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.course-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 24px;
+  background: rgba(42, 36, 22, 0.08);
+  border: 1.5px solid rgba(42, 36, 22, 0.3);
+  color: #2a2416;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  transition: 0.3s;
+  min-width: 200px;
+}
+
+.course-btn small {
+  display: block;
+  font-size: 11px;
+  font-weight: 300;
+  color: #3d3526;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+
+.course-btn:hover {
+  background: #2a2416;
+  color: #b5a882;
+  transform: translateY(-3px);
+  border-color: #2a2416;
+}
+
+.course-btn:hover small { color: #b5a882; opacity: 0.9; }
+
+/* ================================================================
+   PROJECT LIST — 40 projects each for AIML and Data Science
+================================================================ */
+.project-list { padding: 0 60px; }
+
+.project-item {
+  background: rgba(255, 255, 255, 0.32);
+  border: 1px solid rgba(42, 36, 22, 0.12);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+}
+
+.project-item:hover {
+  border-color: rgba(42, 36, 22, 0.35);
+  background: rgba(255, 255, 255, 0.48);
+}
+
+.project-item summary {
+  padding: 13px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2a2416;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.project-item summary:hover { color: #6b5d3f; }
+
+.project-item summary::after {
+  content: "▼";
+  font-size: 10px;
+  opacity: 0.35;
+  transition: 0.3s;
+}
+
+.project-item[open] summary::after { transform: rotate(180deg); }
+
+.project-details {
+  padding: 16px 20px;
+  border-top: 1px solid rgba(42, 36, 22, 0.08);
+  animation: fadeUp 0.3s ease;
+  line-height: 1.8;
+}
+
+.project-details p {
+  font-size: 13px;
+  color: #3d3526;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.roadmap {
+  background: rgba(42, 36, 22, 0.06);
+  border-left: 3px solid #6b5d3f;
+  border-radius: 0 6px 6px 0;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 13px;
+  color: #2a2416;
+}
+
+.roadmap ol {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.roadmap ol li {
+  margin-bottom: 5px;
+  color: #3d3526;
+  font-size: 13px;
+}
+
+/* ================================================================
+   COMING SOON FULL PAGE — Career Tips, Resources & Tools
+================================================================ */
+.coming-soon-full {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.cs-icon {
+  font-size: 64px;
+  margin-bottom: 24px;
+}
+
+.coming-soon-full h1 { padding: 0; margin-bottom: 16px; color: #2a2416; }
+.coming-soon-full p { padding: 0; font-size: 16px; color: #3d3526; opacity: 0.75; margin-bottom: 10px; }
+.cs-tag { font-size: 20px !important; letter-spacing: 3px; color: #6b5d3f !important; opacity: 1 !important; margin: 24px 0 !important; font-weight: 600 !important; }
+.cs-sub { font-size: 13px !important; opacity: 0.45 !important; }
+
+/* ================================================================
+   AUTH PAGE — Sign Up / Login (centered card layout)
+================================================================ */
+
+/* auth-page uses flex to center the card vertically */
+.auth-page {
+  display: flex !important;
+  flex-direction: column;
+}
+
+/* The centered white card */
+.auth-card {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(42, 36, 22, 0.15);
+  border-radius: 16px;
+  padding: 40px;
+  width: 100%;
+  max-width: 440px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  box-shadow: 0 8px 32px rgba(42, 36, 22, 0.12);
+}
+
+/* Tab row — Sign Up | Login */
+.auth-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 28px;
+  background: rgba(42, 36, 22, 0.08);
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #3d3526;
+  font-family: 'Poppins', sans-serif;
+  transition: 0.3s;
+}
+
+/* Active tab = filled dark */
+.auth-tab.active {
+  background: #2a2416;
+  color: #b5a882;
+  font-weight: 600;
+}
+
+.auth-tab:hover:not(.active) { background: rgba(42, 36, 22, 0.1); }
+
+.auth-subtitle {
+  font-size: 13px;
+  color: #6b5d3f;
+  margin-bottom: 16px;
+  opacity: 0.85;
+}
+
+.auth-form { animation: fadeUp 0.3s ease; }
+
+/* Inputs inside auth forms */
+.auth-form input {
+  display: block;
+  width: 100%;
+  padding: 13px 16px;
+  margin: 10px 0;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(42, 36, 22, 0.2);
+  border-radius: 8px;
+  color: #2a2416;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  transition: 0.3s;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #6b5d3f;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.auth-form input::placeholder { color: rgba(42, 36, 22, 0.4); }
+
+/* Submit button inside auth */
+.auth-form .submit-btn {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  margin-top: 16px;
+  background: #2a2416;
+  color: #b5a882;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: 0.3s;
+}
+
+.auth-form .submit-btn:hover {
+  background: #3d3526;
+  transform: scale(1.02);
+}
+
+/* "Already have an account? Login here" link */
+.auth-switch {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 13px;
+  color: #6b5d3f;
+}
+
+.auth-switch span {
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #2a2416;
+  transition: 0.2s;
+}
+
+.auth-switch span:hover { color: #6b5d3f; }
+
+/* ================================================================
+   ANIMATION — fadeUp
+   Elements start 20px below and invisible → slide up and appear
+================================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Mobile Responsive */
+@media (max-width: 768px){
+  .hero-title{
+    font-size: 40px;
+  }
+  nav{
+    padding: 15px 20px;
+  }
+  .menu{
+    gap: 15px;
+  }
+  .hero{
+    padding-top: 80px;
+  }
+}
+
+/* Details_page */
+.detail-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.info p {
+  margin: 5px 0;
+}
+
+.section {
+  margin-top: 20px;
+}
+
+.section h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.section ul {
+  padding-left: 20px;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  padding: 10px 15px;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+/* Recommendation_Page through Lets Make Button */
+.recommend-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.recommend-box {
+  margin: 20px;
+}
+
+.recommend-box input {
+  padding: 10px;
+  width: 250px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.recommend-box button {
+  padding: 12px 18px;
+  border-radius: 8px;
+
+  border: none;
+
+  background: #2a2416;
+  color: #b5a882;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.recommend-box button:hover {
+  background: #3d3526;
+  transform: scale(1.05);
+}
+
+/* Style*/
+/* ============================================================
+   PROJECT CARDS — MATCHING YOUR COLOR PALETTE
+   (Used in both Projects page & Recommendations)
+============================================================ */
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin: 40px 60px;
+}
+
+/* Each project card */
+.project-card {
+  width: 260px;
+
+  /* Soft glass look instead of plain white */
+  background: rgba(255, 255, 255, 0.35);
+
+  border: 1px solid rgba(42, 36, 22, 0.15);
+  border-radius: 16px;
+
+  padding: 18px;
+  text-align: left;
+
+  /* Smooth animation */
+  transition: all 0.3s ease;
+
+  cursor: pointer;
+
+  /* Subtle shadow matching theme */
+  box-shadow: 0 6px 20px rgba(42, 36, 22, 0.12);
+}
+
+/* Hover effect */
+.project-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  background: rgba(255, 255, 255, 0.55);
+  border-color: rgba(42, 36, 22, 0.35);
+}
+
+/* Title styling */
+.project-card h3 {
+  margin-bottom: 10px;
+
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+
+  color: #2a2416;
+}
+
+/* Text inside card */
+.project-card p {
+  font-size: 13px;
+  margin: 6px 0;
+
+  color: #3d3526;
+  opacity: 0.9;
+}
+
+
+/*Recommendation Box*/
+.recommend-box input {
+  padding: 12px 14px;
+  width: 260px;
+
+  border-radius: 8px;
+
+  border: 1px solid rgba(42, 36, 22, 0.25);
+
+  background: rgba(255, 255, 255, 0.6);
+  color: #2a2416;
+
+  font-family: 'Poppins', sans-serif;
+
+  transition: 0.3s;
+}
+
+.recommend-box input:focus {
+  outline: none;
+  border-color: #6b5d3f;
+  background: rgba(255, 255, 255, 0.85);
+}

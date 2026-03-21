@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Recommendation</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="recommend-container">
+
+  <h1>Find Your Perfect Project 🚀</h1>
+
+  <div class="recommend-box">
+    <input type="text" id="userInput" placeholder="Enter your interest (AI, ML, Data...)">
+    <button onclick="getRecommendations()">Recommend</button>
+  </div>
+
+  <div class="projects-container"></div>
+
+  <br>
+  <a href="/" class="back-btn">← Back to Home</a>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

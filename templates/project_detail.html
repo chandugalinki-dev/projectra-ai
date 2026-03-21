@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project Detail</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="detail-container">
+
+  <h1 class="title">{{ project.title }}</h1>
+
+  <div class="info">
+    <p><b>Domain:</b> {{ project.domain }}</p>
+    <p><b>Level:</b> {{ project.level }}</p>
+    <p><b>Dataset:</b> {{ project.dataset }}</p>
+  </div>
+
+  <div class="section">
+    <h3>Algorithms</h3>
+    <ul>
+      {% for algo in project.algorithms %}
+        <li>{{ algo }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Tools</h3>
+    <ul>
+      {% for tool in project.tools %}
+        <li>{{ tool }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Roadmap</h3>
+    <ul>
+      {% for step in project.roadmap %}
+        <li>{{ step }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Expected Output</h3>
+    <p>{{ project.expected_output }}</p>
+  </div>
+
+  <a href="/projects" class="back-btn">← Back</a>
+
+</div>
+
+</body>
+</html>

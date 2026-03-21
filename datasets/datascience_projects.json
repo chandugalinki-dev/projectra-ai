@@ -1,0 +1,1254 @@
+[
+  {
+    "id": 1,
+    "title": "Sales Forecasting System",
+    "dataset": "Kaggle Retail Sales Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "Matplotlib"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Linear Regression",
+      "ARIMA"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 2,
+    "title": "Customer Churn Prediction",
+    "dataset": "Telco Customer Churn Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Scikit-learn"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Logistic Regression",
+      "Random Forest"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 3,
+    "title": "Movie Recommendation System",
+    "dataset": "MovieLens Dataset",
+    "tools": [
+      "Python",
+      "Surprise Library",
+      "Pandas"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Collaborative Filtering",
+      "KNN"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 4,
+    "title": "Credit Card Fraud Detection",
+    "dataset": "Kaggle Credit Card Fraud Dataset",
+    "tools": [
+      "Python",
+      "Scikit-learn"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Isolation Forest",
+      "Logistic Regression"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 5,
+    "title": "Stock Price Prediction",
+    "dataset": "Yahoo Finance Dataset",
+    "tools": [
+      "Python",
+      "TensorFlow",
+      "Pandas"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "LSTM",
+      "ARIMA"
+    ],
+    "level": "Advanced"
+  },
+  {
+    "id": 6,
+    "title": "Sentiment Analysis on Twitter",
+    "dataset": "Twitter Sentiment Dataset",
+    "tools": [
+      "Python",
+      "NLTK",
+      "Scikit-learn"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Naive Bayes",
+      "SVM"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 7,
+    "title": "House Price Prediction",
+    "dataset": "Boston Housing Dataset",
+    "tools": [
+      "Python",
+      "Scikit-learn"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Linear Regression",
+      "Random Forest"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 8,
+    "title": "Student Performance Prediction",
+    "dataset": "UCI Student Performance Dataset",
+    "tools": [
+      "Python",
+      "Pandas"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Decision Tree",
+      "Random Forest"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 9,
+    "title": "E\u2011commerce Product Recommendation",
+    "dataset": "Amazon Product Dataset",
+    "tools": [
+      "Python",
+      "Pandas"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Apriori",
+      "Collaborative Filtering"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 10,
+    "title": "Fake News Detection",
+    "dataset": "Fake News Dataset",
+    "tools": [
+      "Python",
+      "NLP libraries"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Logistic Regression",
+      "SVM"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 11,
+    "title": "Traffic Accident Analysis",
+    "dataset": "US Traffic Accidents Dataset",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Matplotlib"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Clustering",
+      "Regression"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 12,
+    "title": "Employee Attrition Prediction",
+    "dataset": "IBM HR Dataset",
+    "tools": [
+      "Python",
+      "Scikit-learn"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Random Forest",
+      "Logistic Regression"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 13,
+    "title": "Healthcare Disease Prediction",
+    "dataset": "Heart Disease Dataset",
+    "tools": [
+      "Python",
+      "Scikit-learn"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Decision Tree",
+      "SVM"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 14,
+    "title": "Email Spam Detection",
+    "dataset": "Spam Email Dataset",
+    "tools": [
+      "Python",
+      "NLTK"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Naive Bayes"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 15,
+    "title": "Energy Consumption Forecasting",
+    "dataset": "Energy Consumption Dataset",
+    "tools": [
+      "Python",
+      "Statsmodels"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "ARIMA",
+      "Regression"
+    ],
+    "level": "Advanced"
+  },
+  {
+    "id": 16,
+    "title": "Customer Segmentation",
+    "dataset": "Mall Customer Dataset",
+    "tools": [
+      "Python",
+      "Scikit-learn"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "K-Means Clustering"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 17,
+    "title": "Air Quality Prediction",
+    "dataset": "Air Quality Dataset",
+    "tools": [
+      "Python",
+      "Pandas"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Regression",
+      "Random Forest"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 18,
+    "title": "Weather Prediction",
+    "dataset": "Weather Dataset",
+    "tools": [
+      "Python"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Decision Tree",
+      "Random Forest"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 19,
+    "title": "Bank Loan Approval Prediction",
+    "dataset": "Loan Dataset",
+    "tools": [
+      "Python",
+      "Scikit-learn"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Logistic Regression"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 20,
+    "title": "Disease Outbreak Prediction",
+    "dataset": "WHO Dataset",
+    "tools": [
+      "Python"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Time Series Models"
+    ],
+    "level": "Advanced"
+  },
+  {
+    "id": 21,
+    "title": "Sports Performance Analytics",
+    "dataset": "Sports Statistics Dataset",
+    "tools": [
+      "Python"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Regression",
+      "Clustering"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 22,
+    "title": "YouTube Trending Video Analysis",
+    "dataset": "YouTube Dataset",
+    "tools": [
+      "Python",
+      "Pandas"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Data Visualization",
+      "Regression"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 23,
+    "title": "Hotel Booking Cancellation Prediction",
+    "dataset": "Hotel Booking Dataset",
+    "tools": [
+      "Python"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Random Forest",
+      "Logistic Regression"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 24,
+    "title": "Online Retail Market Basket Analysis",
+    "dataset": "Online Retail Dataset",
+    "tools": [
+      "Python",
+      "MLxtend"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Apriori Algorithm"
+    ],
+    "level": "Advanced"
+  },
+  {
+    "id": 25,
+    "title": "Taxi Demand Prediction",
+    "dataset": "NYC Taxi Dataset",
+    "tools": [
+      "Python"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Time Series Forecasting"
+    ],
+    "level": "Advanced"
+  },
+  {
+    "id": 26,
+    "title": "Flight Delay Prediction",
+    "dataset": "Flight Delay Dataset",
+    "tools": [
+      "Python"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Random Forest"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 27,
+    "title": "Crop Yield Prediction",
+    "dataset": "Agriculture Dataset",
+    "tools": [
+      "Python"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Regression"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 28,
+    "title": "Road Traffic Volume Prediction",
+    "dataset": "Metro Traffic Dataset",
+    "tools": [
+      "Python"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Regression"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 29,
+    "title": "Customer Lifetime Value Prediction",
+    "dataset": "E-commerce Dataset",
+    "tools": [
+      "Python"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Regression"
+    ],
+    "level": "Advanced"
+  },
+  {
+    "id": 30,
+    "title": "News Topic Classification",
+    "dataset": "News Dataset",
+    "tools": [
+      "Python",
+      "NLP"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Naive Bayes",
+      "SVM"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 31,
+    "title": "Music Genre Classification",
+    "dataset": "GTZAN Dataset",
+    "tools": [
+      "Python",
+      "TensorFlow"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "CNN",
+      "Classification"
+    ],
+    "level": "Advanced"
+  },
+  {
+    "id": 32,
+    "title": "Disease Risk Prediction",
+    "dataset": "Medical Dataset",
+    "tools": [
+      "Python"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Logistic Regression"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 33,
+    "title": "Restaurant Rating Prediction",
+    "dataset": "Zomato Dataset",
+    "tools": [
+      "Python"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Regression"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 34,
+    "title": "Product Price Prediction",
+    "dataset": "E-commerce Dataset",
+    "tools": [
+      "Python"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Regression"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 35,
+    "title": "Insurance Claim Prediction",
+    "dataset": "Insurance Dataset",
+    "tools": [
+      "Python"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Random Forest"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 36,
+    "title": "Credit Score Classification",
+    "dataset": "Finance Dataset",
+    "tools": [
+      "Python"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "SVM",
+      "Random Forest"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 37,
+    "title": "Retail Demand Forecasting",
+    "dataset": "Retail Dataset",
+    "tools": [
+      "Python"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "ARIMA"
+    ],
+    "level": "Advanced"
+  },
+  {
+    "id": 38,
+    "title": "Smart City Traffic Analysis",
+    "dataset": "City Traffic Dataset",
+    "tools": [
+      "Python"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Clustering"
+    ],
+    "level": "Intermediate"
+  },
+  {
+    "id": 39,
+    "title": "Social Media Engagement Prediction",
+    "dataset": "Instagram Dataset",
+    "tools": [
+      "Python"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Regression"
+    ],
+    "level": "Beginner"
+  },
+  {
+    "id": 40,
+    "title": "Electric Vehicle Adoption Analysis",
+    "dataset": "EV Dataset",
+    "tools": [
+      "Python"
+    ],
+    "roadmap": [
+      "Problem definition and objective understanding",
+      "Collect and import dataset",
+      "Data cleaning and preprocessing",
+      "Exploratory Data Analysis (EDA)",
+      "Feature engineering",
+      "Model selection and training",
+      "Model evaluation",
+      "Visualization of results",
+      "Deployment or final presentation"
+    ],
+    "expected_output": [
+      "A trained machine learning model",
+      "Visualizations and insights",
+      "Prediction results",
+      "Project report and presentation"
+    ],
+    "domain": "Data Science",
+    "algorithms": [
+      "Regression",
+      "Visualization"
+    ],
+    "level": "Intermediate"
+  }
+]

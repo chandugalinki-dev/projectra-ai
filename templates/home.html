@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<!-- DOCTYPE tells the browser this is an HTML5 page -->
+
+<html lang="en">
+<!-- lang="en" means the page language is English -->
+
+<head>
+  <!-- HEAD section: contains settings, links — nothing visible here -->
+
+  <!-- Character encoding: lets browser show all letters and symbols correctly -->
+  <meta charset="UTF-8">
+
+  <!-- Makes the page look good on mobile phones and tablets -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title shown in the browser tab -->
+  <title>Projectra AI</title>
+  <link rel="shortcut icon" href="E:\WhatsApp Image 2026-03-17 at 2.48.14 AM.jpeg" type="image/x-icon">
+
+  <!-- Linking Google Fonts: Poppins for body, Playfair Display for hero heading -->
+  <!-- Playfair Display is a serif font — gives the elegant contrast like the sample image -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Linking our own CSS file for all visual styles -->
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+
+</head>
+
+<body>
+<!-- BODY: Everything the user actually sees is inside here -->
+
+
+  <!-- ===========================================================
+       HOME PAGE (LANDING PAGE)
+       This is the first thing a visitor sees.
+       Contains: Navbar + Hero section + Footer
+  =========================================================== -->
+  <section id="home">
+
+    <!-- -------------------------------------------------------
+         NAVBAR (Top navigation bar)
+         Logo on left | Links in middle | Sign Up on right
+    ------------------------------------------------------- -->
+    <nav>
+
+      <!-- Logo: clicking it refreshes/goes to home -->
+      <div class="logo" onclick="goHome()">Projectra AI</div>
+
+      <!-- Navigation links — each calls openPage() with the target page ID -->
+      <div class="menu">
+        <a href="/projects">Projects</a>
+        <a href="/degree">Degree</a>
+        <a href="/career-tips">Career Tips</a>
+        <a href="/resources">Resources &amp; Tools</a>
+        <!-- &amp; is the correct HTML way to write the "&" symbol -->
+      </div>
+
+      <!-- Sign Up button on the far right -->
+      <a href="/signup" class="signup-btn">Sign up</a>
+
+    </nav>
+    <!-- End of NAVBAR -->
+
+
+    <!-- -------------------------------------------------------
+         HERO SECTION
+         "Welcome to" is thin/light weight
+         "Projectra AI" is bold and dark — like the sample image
+         "Navigate your learning..." is merged into the description naturally
+    ------------------------------------------------------- -->
+    <div class="hero">
+
+      <!-- Big heading split into two styled parts:
+           "Welcome to"  → thin light font (like the sample image left side)
+           "Projectra AI" → heavy bold font (like the sample image right side) -->
+      <h1 class="hero-title">
+        <!-- "Welcome to" in thin weight — spans let us style parts of a heading differently -->
+        <span class="welcome-text">Welcome to </span>
+        <!-- "Projectra AI" in bold dark weight -->
+        <span class="brand-text">Projectra AI</span>
+      </h1>
+
+      <!-- Description — "Navigate your learning journey" is merged in naturally -->
+      <p class="hero-desc">
+        Navigate your learning journey with structured paths and hands-on projects
+        with expert guidance. We'll help master the skills that matter.
+      </p>
+
+      <!-- Tagline line -->
+      <p class="hero-tagline">TURN YOUR IDEAS INTO PROJECTS WITH US.</p>
+
+      <!-- "Let's Make!" button -->
+      <button class="lets-make-btn" onclick="window.location.href='/recommendation'">Let's Make !</button>
+
+    </div>
+    <!-- End of HERO -->
+
+    <!-- NO FOOTER — removed as requested. Home page is now plain. -->
+
+  </section>
+  <!-- End of HOME section -->
+
+
+  <!-- ===========================================================
+       PROJECTS PAGE
+       Shows filter buttons: All / Beginner / Intermediate / Advanced
+       Then shows "Coming Soon" as the actual projects are not yet listed.
+  =========================================================== -->
+  <section id="projects" class="page">
+
+    <!-- Inner navbar — logo on left, back button on right (always visible at top) -->
+    <div class="inner-nav">
+      <div class="logo" onclick="goHome()">Projectra AI</div>
+      <button class="back-btn" onclick="goHome()">← Back to Home</button>
+    </div>
+
+    <!-- Page heading and description -->
+    <h1>Project Categories</h1>
+    <p>Choose category-wise projects with varying difficulty levels to match your skill levels.</p>
+
+    <!-- For Recommendation -->
+    <div class="recommend-box">
+      <input type="text" id="userInput" placeholder="Enter your interest (e.g., AI, Data, Web)">
+      <button onclick="getRecommendations()">Recommend</button>
+    </div>
+
+    <!-- Filter buttons: All / Beginner / Intermediate / Advanced -->
+    <!-- These are just styled buttons for now — filter logic can be added later -->
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Beginner">Beginner</button>
+      <button class="filter-btn" data-filter="Intermediate">Intermediate</button>
+      <button class="filter-btn" data-filter="Advanced">Advanced</button>
+    </div>
+
+    <!-- Coming Soon box — shown where the project list will be -->
+     <!--
+    <div class="coming-soon-box">
+      <p>⏳ — Coming Soon! —</p>
+      <small>Projects are being added. Check back soon.</small>
+    </div>  -->
+    <div class="projects-container">
+      {% for project in projects %}
+        <div class="project-card" data-level="{{ project.level }}" onclick="openProject({{ project.id }})">
+          <h3 class="title-caps">{{ project.title }}</h3>
+          <p><b>Domain:</b> {{ project.domain }}</p>
+          <p><b>Level:</b> {{ project.level }}</p>
+          <p><b>Dataset:</b> {{ project.dataset }}</p>
+
+          <h4>Roadmap:</h4>
+            <ul>
+              {% for step in project.roadmap %}
+              <li>{{ step }}</li>
+              {% endfor %}
+            </ul>
+        </div>
+      {% endfor %}
+    </div>
+
+  </section>
+  <!-- End of PROJECTS page -->
+
+
+  <!-- ===========================================================
+       DEGREE PAGE
+       Shows a list of Indian degrees in alphabetical order.
+       Each degree uses <details> and <summary> HTML tags.
+       
+       HOW <details> TAG WORKS:
+       - <details> is a built-in HTML tag that creates a collapsible section
+       - <summary> is the clickable heading inside <details>
+       - When you click the summary, the content below it shows/hides
+       - No JavaScript needed — the browser handles it automatically!
+       
+       ONLY B.Tech is functional:
+       - B.Tech → shows AIML and Data Science
+       - AIML → shows all 40 AIML projects with roadmap
+       - Data Science → shows all 40 DS projects with roadmap
+       - All other degrees show "Coming Soon"
+  =========================================================== -->
+  <section id="degree" class="page">
+
+    <!-- Inner navbar — back button in top right -->
+    <div class="inner-nav">
+      <div class="logo" onclick="goHome()">Projectra AI</div>
+      <button class="back-btn" onclick="goHome()">← Back to Home</button>
+    </div>
+
+    <!-- Page heading -->
+    <h1>Degree</h1>
+    <p>Choose your degree and get started with projects that suit your degree.</p>
+    <p class="degree-subtitle">📋 List of Degrees — Click on a degree to see available courses:</p>
+
+    <!-- -------------------------------------------------------
+         DEGREE LIST (Alphabetical order)
+         <details> = collapsible container (no JS needed!)
+         <summary> = the clickable heading
+         Content inside <details> but outside <summary> = hidden content
+    ------------------------------------------------------- -->
+    <div class="degree-list">
+
+      <!-- B.A. — Coming Soon -->
+      <details class="degree-item">
+        <summary>B.A. (Bachelor of Arts)</summary>
+        <div class="degree-content coming-soon-small">🚧 Coming Soon</div>
+      </details>
+
+      <!-- B.B.A. — Coming Soon -->
+      <details class="degree-item">
+        <summary>B.B.A. (Bachelor of Business Administration)</summary>
+        <div class="degree-content coming-soon-small">🚧 Coming Soon</div>
+      </details>
+
+      <!-- B.C.A. — Coming Soon -->
+      <details class="degree-item">
+        <summary>B.C.A. (Bachelor of Computer Applications)</summary>
+        <div class="degree-content coming-soon-small">🚧 Coming Soon</div>
+      </details>
+
+      <!-- B.Com — Coming Soon -->
+      <details class="degree-item">
+        <summary>B.Com (Bachelor of Commerce)</summary>
+        <div class="degree-content coming-soon-small">🚧 Coming Soon</div>
+      </details>
+
+      <!-- B.Sc — Coming Soon -->
+      <details class="degree-item">
+        <summary>B.Sc (Bachelor of Science)</summary>
+        <div class="degree-content coming-soon-small">🚧 Coming Soon</div>
+      </details>
+
+      <!-- ===================================================
+           B.TECH — THIS IS THE ONLY FULLY WORKING DEGREE
+           When clicked, shows two courses: AIML and Data Science
+      =================================================== -->
+      <details class="degree-item btech-item">
+        <!-- summary is what you see before clicking -->
+        <summary>B.Tech (Bachelor of Technology) </summary>
+
+        <!-- This content shows AFTER clicking B.Tech -->
+        <div class="degree-content">
+          <p class="course-label">Select your course to view 40 project ideas:</p>
+
+          <!-- Two course buttons: AIML and Data Science -->
+          <!-- onclick calls openPage() to go to that course's project list -->
+          <div class="course-buttons">
+
+            <button class="course-btn" onclick="openPage('aiml-projects')">
+              🤖 AIML
+              <small>Artificial Intelligence &amp; Machine Learning</small>
+            </button>
+
+            <button class="course-btn" onclick="openPage('ds-projects')">
+              📊 Data Science
+              <small>Data Analysis &amp; Visualization</small>
+            </button>
+
+          </div>
+        </div>
+      </details>
+      <!-- End of B.Tech -->
+
+      <!-- M.C.A. — Coming Soon -->
+      <details class="degree-item">
+        <summary>M.C.A. (Master of Computer Applications)</summary>
+        <div class="degree-content coming-soon-small">🚧 Coming Soon</div>
+      </details>
+
+      <!-- M.Tech — Coming Soon -->
+      <details class="degree-item">
+        <summary>M.Tech (Master of Technology)</summary>
+        <div class="degree-content coming-soon-small">🚧 Coming Soon</div>
+      </details>
+
+      <!-- MBA — Coming Soon -->
+      <details class="degree-item">
+        <summary>MBA (Master of Business Administration)</summary>
+        <div class="degree-content coming-soon-small">🚧 Coming Soon</div>
+      </details>
+
+      <!-- M.Sc — Coming Soon -->
+      <details class="degree-item">
+        <summary>M.Sc (Master of Science)</summary>
+        <div class="degree-content coming-soon-small">🚧 Coming Soon</div>
+      </details>
+
+      <!-- Ph.D — Coming Soon -->
+      <details class="degree-item">
+        <summary>Ph.D (Doctor of Philosophy)</summary>
+        <div class="degree-content coming-soon-small">🚧 Coming Soon</div>
+      </details>
+
+      <!-- Polytechnic Diploma — Coming Soon -->
+      <details class="degree-item">
+        <summary>Polytechnic Diploma</summary>
+        <div class="degree-content coming-soon-small">🚧 Coming Soon</div>
+      </details>
+
+    </div>
+    <!-- End of degree list -->
+
+  </section>
+  <!-- End of DEGREE page -->
+
+
+  <!-- ===========================================================
+       AIML PROJECTS PAGE
+       Shows all 40 AIML projects from the dataset.
+       Each project is inside a <details> tag so user can
+       click to expand and see the full roadmap.
+  =========================================================== -->
+  <section id="aiml-projects" class="page">
+
+    <!-- Inner navbar — back button goes to Degree page, placed at top right -->
+    <div class="inner-nav">
+      <div class="logo" onclick="goHome()">Projectra AI</div>
+      <button class="back-btn" onclick="openPage('degree')">← Back to Degree</button>
+    </div>
+
+    <h1>🤖 AIML Projects</h1>
+    <p>40 project ideas for Artificial Intelligence &amp; Machine Learning students. Click on any project to see the full roadmap.</p>
+
+    <!-- All 40 AIML projects — each inside a <details> tag -->
+    <div class="project-list">
+
+
+      <!-- PROJECT 1 -->
+      <details class="project-item">
+        <summary>1. Student Performance Prediction</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Predict student marks based on study hours, attendance, and past scores.</p>
+          <p><strong>📂 Dataset:</strong> UCI Student Performance Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Random Forest, Linear Regression</p>
+          <p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, Jupyter</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A trained ML model that predicts student performance with accuracy metrics.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 2 -->
+      <details class="project-item">
+        <summary>2. House Price Prediction</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Predict house prices using location, size, and features.</p>
+          <p><strong>📂 Dataset:</strong> Kaggle House Prices Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Linear Regression, XGBoost</p>
+          <p><strong>🛠️ Tools:</strong> Python, Pandas, NumPy, Scikit-learn</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A model that predicts house prices with performance metrics.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 3 -->
+      <details class="project-item">
+        <summary>3. Fake News Detection</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Classify news articles as real or fake.</p>
+          <p><strong>📂 Dataset:</strong> Kaggle Fake News Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Naive Bayes, Logistic Regression</p>
+          <p><strong>🛠️ Tools:</strong> Python, NLP, Scikit-learn, NLTK</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A classifier that detects fake news with accuracy score.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 4 -->
+      <details class="project-item">
+        <summary>4. Movie Recommendation System</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Recommend movies based on user ratings and preferences.</p>
+          <p><strong>📂 Dataset:</strong> MovieLens Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Collaborative Filtering, KNN</p>
+          <p><strong>🛠️ Tools:</strong> Python, Surprise Library, Pandas</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A recommendation engine that suggests movies to users.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 5 -->
+      <details class="project-item">
+        <summary>5. Spam Email Detection</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Automatically detect and classify spam emails.</p>
+          <p><strong>📂 Dataset:</strong> Spam Email Dataset (UCI)</p>
+          <p><strong>⚙️ Algorithm:</strong> Naive Bayes</p>
+          <p><strong>🛠️ Tools:</strong> Python, NLP, Scikit-learn</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A spam classifier with precision and recall metrics.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 6 -->
+      <details class="project-item">
+        <summary>6. Customer Churn Prediction</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Predict whether a customer will leave the service.</p>
+          <p><strong>📂 Dataset:</strong> Telco Customer Churn Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Random Forest, Logistic Regression</p>
+          <p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A churn prediction model with performance report.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 7 -->
+      <details class="project-item">
+        <summary>7. Credit Card Fraud Detection</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Detect fraudulent credit card transactions.</p>
+          <p><strong>📂 Dataset:</strong> Kaggle Credit Card Fraud Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Isolation Forest, Logistic Regression</p>
+          <p><strong>🛠️ Tools:</strong> Python, Scikit-learn</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A fraud detection model with accuracy and F1 score.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 8 -->
+      <details class="project-item">
+        <summary>8. Handwritten Digit Recognition</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Recognize and classify handwritten digits (0–9).</p>
+          <p><strong>📂 Dataset:</strong> MNIST Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> CNN (Convolutional Neural Network)</p>
+          <p><strong>🛠️ Tools:</strong> Python, TensorFlow/Keras</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A digit classifier with high accuracy on test data.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 9 -->
+      <details class="project-item">
+        <summary>9. Face Mask Detection</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Detect whether a person is wearing a face mask or not.</p>
+          <p><strong>📂 Dataset:</strong> Custom Image Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> CNN</p>
+          <p><strong>🛠️ Tools:</strong> Python, OpenCV, TensorFlow</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A real-time mask detection system using webcam.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 10 -->
+      <details class="project-item">
+        <summary>10. Traffic Sign Recognition</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Recognize and classify road traffic signs from images.</p>
+          <p><strong>📂 Dataset:</strong> GTSRB Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> CNN</p>
+          <p><strong>🛠️ Tools:</strong> Python, TensorFlow, OpenCV</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A model that identifies traffic signs with accuracy above 90%.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 11 -->
+      <details class="project-item">
+        <summary>11. Sentiment Analysis on Tweets</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Classify tweets as positive, negative, or neutral.</p>
+          <p><strong>📂 Dataset:</strong> Twitter Sentiment Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> LSTM, Naive Bayes</p>
+          <p><strong>🛠️ Tools:</strong> Python, NLTK, TensorFlow</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A sentiment classifier with accuracy and confusion matrix.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 12 -->
+      <details class="project-item">
+        <summary>12. Chatbot for College Queries</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Build a chatbot that answers common student questions automatically.</p>
+          <p><strong>📂 Dataset:</strong> Custom FAQ Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> NLP, Intent Classification</p>
+          <p><strong>🛠️ Tools:</strong> Python, Rasa / NLTK</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A working chatbot interface that answers student queries.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 13 -->
+      <details class="project-item">
+        <summary>13. Crop Recommendation System</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Recommend the best crop to grow based on soil and weather conditions.</p>
+          <p><strong>📂 Dataset:</strong> Agriculture Dataset (Kaggle)</p>
+          <p><strong>⚙️ Algorithm:</strong> Decision Tree, Random Forest</p>
+          <p><strong>🛠️ Tools:</strong> Python, Pandas</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A crop recommendation tool with prediction accuracy.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 14 -->
+      <details class="project-item">
+        <summary>14. Weather Prediction</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Predict future weather conditions based on historical data.</p>
+          <p><strong>📂 Dataset:</strong> Weather Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Regression Models</p>
+          <p><strong>🛠️ Tools:</strong> Python, Scikit-learn</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A weather forecasting model with visualization graphs.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 15 -->
+      <details class="project-item">
+        <summary>15. Disease Prediction System</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Predict possible diseases based on patient symptoms.</p>
+          <p><strong>📂 Dataset:</strong> Healthcare Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Decision Tree</p>
+          <p><strong>🛠️ Tools:</strong> Python, Pandas</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A disease prediction tool based on symptom input.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 16 -->
+      <details class="project-item">
+        <summary>16. Stock Price Prediction</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Predict future stock market prices and trends.</p>
+          <p><strong>📂 Dataset:</strong> Yahoo Finance Data</p>
+          <p><strong>⚙️ Algorithm:</strong> LSTM</p>
+          <p><strong>🛠️ Tools:</strong> Python, TensorFlow</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A stock trend prediction model with line charts.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 17 -->
+      <details class="project-item">
+        <summary>17. Image Classification System</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Classify images into multiple categories automatically.</p>
+          <p><strong>📂 Dataset:</strong> CIFAR-10 Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> CNN</p>
+          <p><strong>🛠️ Tools:</strong> Python, TensorFlow</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> An image classifier with category predictions.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 18 -->
+      <details class="project-item">
+        <summary>18. Resume Screening System</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Automatically shortlist resumes based on job requirements.</p>
+          <p><strong>📂 Dataset:</strong> Resume Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> NLP Classification</p>
+          <p><strong>🛠️ Tools:</strong> Python, NLP, Scikit-learn</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> An automated resume ranking system.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 19 -->
+      <details class="project-item">
+        <summary>19. Language Translation Model</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Build a model that translates text between two languages.</p>
+          <p><strong>📂 Dataset:</strong> Parallel Text Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Seq2Seq, Transformer</p>
+          <p><strong>🛠️ Tools:</strong> Python, TensorFlow</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A translation model with BLEU score evaluation.</p>
+        </div>
+      </details>
+
+      <!-- PROJECT 20 -->
+      <details class="project-item">
+        <summary>20. Object Detection System</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Detect and label multiple objects within images or video.</p>
+          <p><strong>📂 Dataset:</strong> COCO Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> YOLO</p>
+          <p><strong>🛠️ Tools:</strong> Python, OpenCV, PyTorch</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem Definition</li>
+              <li>Dataset Collection</li>
+              <li>Data Preprocessing</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Model Selection</li>
+              <li>Model Training</li>
+              <li>Model Evaluation</li>
+              <li>Result Visualization / Deployment</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A real-time object detection system with bounding boxes.</p>
+        </div>
+      </details>
+
+      <!-- PROJECTS 21-40: Generic AIML projects -->
+      <!-- These follow the same structure — dataset coming soon for these -->
+
+      <details class="project-item">
+        <summary>21. AI Model for Data Prediction (Project 21)</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p>
+          <p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Machine Learning / Deep Learning Algorithm</p>
+          <p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p>
+          <div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>Exploratory Data Analysis</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Result Visualization / Deployment</li></ol></div>
+          <p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics and visualization.</p>
+        </div>
+      </details>
+
+      <details class="project-item">
+        <summary>22. AI Model for Data Prediction (Project 22)</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p>
+          <p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Machine Learning / Deep Learning Algorithm</p>
+          <p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p>
+          <div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>Exploratory Data Analysis</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Result Visualization / Deployment</li></ol></div>
+          <p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics and visualization.</p>
+        </div>
+      </details>
+
+      <details class="project-item">
+        <summary>23. AI Model for Data Prediction (Project 23)</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p>
+          <p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Machine Learning / Deep Learning Algorithm</p>
+          <p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p>
+          <div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>Exploratory Data Analysis</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Result Visualization / Deployment</li></ol></div>
+          <p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics and visualization.</p>
+        </div>
+      </details>
+
+      <details class="project-item">
+        <summary>24. AI Model for Data Prediction (Project 24)</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p>
+          <p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Machine Learning / Deep Learning Algorithm</p>
+          <p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p>
+          <div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>Exploratory Data Analysis</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Result Visualization / Deployment</li></ol></div>
+          <p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics and visualization.</p>
+        </div>
+      </details>
+
+      <details class="project-item">
+        <summary>25. AI Model for Data Prediction (Project 25)</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p>
+          <p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Machine Learning / Deep Learning Algorithm</p>
+          <p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p>
+          <div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>Exploratory Data Analysis</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Result Visualization / Deployment</li></ol></div>
+          <p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics and visualization.</p>
+        </div>
+      </details>
+
+      <details class="project-item">
+        <summary>26. AI Model for Data Prediction (Project 26)</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p>
+          <p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Machine Learning / Deep Learning</p>
+          <p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p>
+          <div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>Exploratory Data Analysis</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Result Visualization / Deployment</li></ol></div>
+          <p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics and visualization.</p>
+        </div>
+      </details>
+
+      <details class="project-item">
+        <summary>27. AI Model for Data Prediction (Project 27)</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p>
+          <p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Machine Learning / Deep Learning</p>
+          <p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p>
+          <div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>Exploratory Data Analysis</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Result Visualization / Deployment</li></ol></div>
+          <p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics and visualization.</p>
+        </div>
+      </details>
+
+      <details class="project-item">
+        <summary>28. AI Model for Data Prediction (Project 28)</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p>
+          <p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Machine Learning / Deep Learning</p>
+          <p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p>
+          <div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>Exploratory Data Analysis</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Result Visualization / Deployment</li></ol></div>
+          <p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics and visualization.</p>
+        </div>
+      </details>
+
+      <details class="project-item">
+        <summary>29. AI Model for Data Prediction (Project 29)</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p>
+          <p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Machine Learning / Deep Learning</p>
+          <p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p>
+          <div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>Exploratory Data Analysis</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Result Visualization / Deployment</li></ol></div>
+          <p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics and visualization.</p>
+        </div>
+      </details>
+
+      <details class="project-item">
+        <summary>30. AI Model for Data Prediction (Project 30)</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p>
+          <p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Machine Learning / Deep Learning</p>
+          <p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p>
+          <div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>Exploratory Data Analysis</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Result Visualization / Deployment</li></ol></div>
+          <p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics and visualization.</p>
+        </div>
+      </details>
+
+      <details class="project-item"><summary>31. AI Application Project 31</summary><div class="project-details"><p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p><p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p><p><strong>⚙️ Algorithm:</strong> ML / Deep Learning</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>EDA</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Deployment</li></ol></div><p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics.</p></div></details>
+
+      <details class="project-item"><summary>32. AI Application Project 32</summary><div class="project-details"><p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p><p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p><p><strong>⚙️ Algorithm:</strong> ML / Deep Learning</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>EDA</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Deployment</li></ol></div><p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics.</p></div></details>
+
+      <details class="project-item"><summary>33. AI Application Project 33</summary><div class="project-details"><p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p><p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p><p><strong>⚙️ Algorithm:</strong> ML / Deep Learning</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>EDA</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Deployment</li></ol></div><p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics.</p></div></details>
+
+      <details class="project-item"><summary>34. AI Application Project 34</summary><div class="project-details"><p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p><p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p><p><strong>⚙️ Algorithm:</strong> ML / Deep Learning</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>EDA</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Deployment</li></ol></div><p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics.</p></div></details>
+
+      <details class="project-item"><summary>35. AI Application Project 35</summary><div class="project-details"><p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p><p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p><p><strong>⚙️ Algorithm:</strong> ML / Deep Learning</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>EDA</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Deployment</li></ol></div><p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics.</p></div></details>
+
+      <details class="project-item"><summary>36. AI Application Project 36</summary><div class="project-details"><p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p><p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p><p><strong>⚙️ Algorithm:</strong> ML / Deep Learning</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>EDA</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Deployment</li></ol></div><p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics.</p></div></details>
+
+      <details class="project-item"><summary>37. AI Application Project 37</summary><div class="project-details"><p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p><p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p><p><strong>⚙️ Algorithm:</strong> ML / Deep Learning</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>EDA</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Deployment</li></ol></div><p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics.</p></div></details>
+
+      <details class="project-item"><summary>38. AI Application Project 38</summary><div class="project-details"><p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p><p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p><p><strong>⚙️ Algorithm:</strong> ML / Deep Learning</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>EDA</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Deployment</li></ol></div><p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics.</p></div></details>
+
+      <details class="project-item"><summary>39. AI Application Project 39</summary><div class="project-details"><p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p><p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p><p><strong>⚙️ Algorithm:</strong> ML / Deep Learning</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>EDA</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Deployment</li></ol></div><p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics.</p></div></details>
+
+      <details class="project-item"><summary>40. AI Application Project 40</summary><div class="project-details"><p><strong>📌 Description:</strong> Build an AI model to analyze data and generate predictions.</p><p><strong>📂 Dataset:</strong> Kaggle / UCI Dataset</p><p><strong>⚙️ Algorithm:</strong> ML / Deep Learning</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, TensorFlow</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem Definition</li><li>Dataset Collection</li><li>Data Preprocessing</li><li>EDA</li><li>Model Selection</li><li>Model Training</li><li>Model Evaluation</li><li>Deployment</li></ol></div><p><strong>✅ Expected Output:</strong> A trained ML model with performance metrics.</p></div></details>
+
+    </div>
+    <!-- End of AIML project list -->
+
+  </section>
+  <!-- End of AIML PROJECTS page -->
+
+
+  <!-- ===========================================================
+       DATA SCIENCE PROJECTS PAGE
+       Shows all 40 Data Science projects from the dataset.
+  =========================================================== -->
+  <section id="ds-projects" class="page">
+
+    <!-- Inner navbar — back button goes to Degree page at top right -->
+    <div class="inner-nav">
+      <div class="logo" onclick="goHome()">Projectra AI</div>
+      <button class="back-btn" onclick="openPage('degree')">← Back to Degree</button>
+    </div>
+
+    <h1>📊 Data Science Projects</h1>
+    <p>40 project ideas for Data Science students. Click on any project to see the full roadmap.</p>
+
+    <div class="project-list">
+
+      <!-- DS PROJECT 1 -->
+      <details class="project-item">
+        <summary>1. Sales Forecasting System</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Forecast future sales using historical retail data.</p>
+          <p><strong>📂 Dataset:</strong> Kaggle Retail Sales Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Linear Regression, ARIMA</p>
+          <p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, Matplotlib</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem definition and objective understanding</li>
+              <li>Collect and import dataset</li>
+              <li>Data cleaning and preprocessing</li>
+              <li>Exploratory Data Analysis (EDA)</li>
+              <li>Feature engineering</li>
+              <li>Model selection and training</li>
+              <li>Model evaluation</li>
+              <li>Visualization of results</li>
+              <li>Deployment or final presentation</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A trained ML model, visualizations, prediction results, and project report.</p>
+        </div>
+      </details>
+
+      <!-- DS PROJECT 2 -->
+      <details class="project-item">
+        <summary>2. Customer Churn Prediction</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Predict which customers are likely to stop using a service.</p>
+          <p><strong>📂 Dataset:</strong> Telco Customer Churn Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Logistic Regression, Random Forest</p>
+          <p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem definition and objective understanding</li>
+              <li>Collect and import dataset</li>
+              <li>Data cleaning and preprocessing</li>
+              <li>Exploratory Data Analysis (EDA)</li>
+              <li>Feature engineering</li>
+              <li>Model selection and training</li>
+              <li>Model evaluation</li>
+              <li>Visualization of results</li>
+              <li>Deployment or final presentation</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A churn prediction model with visualizations and report.</p>
+        </div>
+      </details>
+
+      <!-- DS PROJECT 3 -->
+      <details class="project-item">
+        <summary>3. Movie Recommendation System</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Recommend movies to users based on viewing history and ratings.</p>
+          <p><strong>📂 Dataset:</strong> MovieLens Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Collaborative Filtering, KNN</p>
+          <p><strong>🛠️ Tools:</strong> Python, Surprise Library, Pandas</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem definition and objective understanding</li>
+              <li>Collect and import dataset</li>
+              <li>Data cleaning and preprocessing</li>
+              <li>Exploratory Data Analysis (EDA)</li>
+              <li>Feature engineering</li>
+              <li>Model selection and training</li>
+              <li>Model evaluation</li>
+              <li>Visualization of results</li>
+              <li>Deployment or final presentation</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A recommendation engine with accuracy metrics.</p>
+        </div>
+      </details>
+
+      <!-- DS PROJECT 4 -->
+      <details class="project-item">
+        <summary>4. Credit Card Fraud Detection</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Identify fraudulent transactions in credit card data.</p>
+          <p><strong>📂 Dataset:</strong> Kaggle Credit Card Fraud Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> Isolation Forest, Logistic Regression</p>
+          <p><strong>🛠️ Tools:</strong> Python, Scikit-learn</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem definition and objective understanding</li>
+              <li>Collect and import dataset</li>
+              <li>Data cleaning and preprocessing</li>
+              <li>Exploratory Data Analysis (EDA)</li>
+              <li>Feature engineering</li>
+              <li>Model selection and training</li>
+              <li>Model evaluation</li>
+              <li>Visualization of results</li>
+              <li>Deployment or final presentation</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A fraud detection model with precision/recall report.</p>
+        </div>
+      </details>
+
+      <!-- DS PROJECT 5 -->
+      <details class="project-item">
+        <summary>5. Stock Price Prediction</summary>
+        <div class="project-details">
+          <p><strong>📌 Description:</strong> Predict future stock prices using time series data.</p>
+          <p><strong>📂 Dataset:</strong> Yahoo Finance Dataset</p>
+          <p><strong>⚙️ Algorithm:</strong> LSTM, ARIMA</p>
+          <p><strong>🛠️ Tools:</strong> Python, TensorFlow, Pandas</p>
+          <div class="roadmap">
+            <strong>🗺️ Roadmap / Steps:</strong>
+            <ol>
+              <li>Problem definition and objective understanding</li>
+              <li>Collect and import dataset</li>
+              <li>Data cleaning and preprocessing</li>
+              <li>Exploratory Data Analysis (EDA)</li>
+              <li>Feature engineering</li>
+              <li>Model selection and training</li>
+              <li>Model evaluation</li>
+              <li>Visualization of results</li>
+              <li>Deployment or final presentation</li>
+            </ol>
+          </div>
+          <p><strong>✅ Expected Output:</strong> A stock price prediction model with trend charts.</p>
+        </div>
+      </details>
+
+      <!-- DS PROJECTS 6–40: All follow same roadmap structure -->
+      <details class="project-item"><summary>6. Sentiment Analysis on Twitter</summary><div class="project-details"><p><strong>📌 Description:</strong> Analyze Twitter posts to determine public sentiment.</p><p><strong>📂 Dataset:</strong> Twitter Sentiment Dataset</p><p><strong>⚙️ Algorithm:</strong> NLP, Logistic Regression</p><p><strong>🛠️ Tools:</strong> Python, NLTK, Pandas</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Sentiment classifier with visualizations and report.</p></div></details>
+
+      <details class="project-item"><summary>7. House Price Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Predict house prices based on area, location, and features.</p><p><strong>📂 Dataset:</strong> Kaggle House Prices Dataset</p><p><strong>⚙️ Algorithm:</strong> Linear Regression, XGBoost</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Price prediction model with evaluation metrics.</p></div></details>
+
+      <details class="project-item"><summary>8. Student Performance Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Predict academic performance of students using data analysis.</p><p><strong>📂 Dataset:</strong> UCI Student Performance Dataset</p><p><strong>⚙️ Algorithm:</strong> Random Forest, Linear Regression</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Performance prediction model with accuracy metrics.</p></div></details>
+
+      <details class="project-item"><summary>9. E-commerce Product Recommendation</summary><div class="project-details"><p><strong>📌 Description:</strong> Recommend products to users on an e-commerce platform.</p><p><strong>📂 Dataset:</strong> Amazon Product Dataset</p><p><strong>⚙️ Algorithm:</strong> Collaborative Filtering</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> A product recommendation engine.</p></div></details>
+
+      <details class="project-item"><summary>10. Fake News Detection</summary><div class="project-details"><p><strong>📌 Description:</strong> Use data science to classify news as real or fake.</p><p><strong>📂 Dataset:</strong> Kaggle Fake News Dataset</p><p><strong>⚙️ Algorithm:</strong> NLP, Naive Bayes</p><p><strong>🛠️ Tools:</strong> Python, NLTK, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> A fake news classifier with accuracy report.</p></div></details>
+
+      <details class="project-item"><summary>11. Traffic Accident Analysis</summary><div class="project-details"><p><strong>📌 Description:</strong> Analyze traffic accident patterns to find high-risk zones and times.</p><p><strong>📂 Dataset:</strong> US Accident Dataset (Kaggle)</p><p><strong>⚙️ Algorithm:</strong> EDA, Clustering</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Matplotlib, Seaborn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Analysis</li><li>Visualization</li><li>Insights report</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Visual insights report on accident patterns.</p></div></details>
+
+      <details class="project-item"><summary>12. Employee Attrition Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Predict which employees are likely to leave the company.</p><p><strong>📂 Dataset:</strong> IBM HR Analytics Dataset</p><p><strong>⚙️ Algorithm:</strong> Logistic Regression, Random Forest</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Employee attrition predictor with accuracy metrics.</p></div></details>
+
+      <details class="project-item"><summary>13. Healthcare Disease Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Predict diseases using patient health data.</p><p><strong>📂 Dataset:</strong> Pima Indians Diabetes Dataset</p><p><strong>⚙️ Algorithm:</strong> Decision Tree, SVM</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> A healthcare disease prediction model.</p></div></details>
+
+      <details class="project-item"><summary>14. Email Spam Detection</summary><div class="project-details"><p><strong>📌 Description:</strong> Classify emails as spam or not spam using text features.</p><p><strong>📂 Dataset:</strong> Spam Email Dataset (UCI)</p><p><strong>⚙️ Algorithm:</strong> Naive Bayes, SVM</p><p><strong>🛠️ Tools:</strong> Python, NLTK, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> An email spam detector with precision and recall.</p></div></details>
+
+      <details class="project-item"><summary>15. Energy Consumption Forecasting</summary><div class="project-details"><p><strong>📌 Description:</strong> Forecast future energy consumption for a region or building.</p><p><strong>📂 Dataset:</strong> UCI Energy Dataset</p><p><strong>⚙️ Algorithm:</strong> ARIMA, Random Forest</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Matplotlib</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Energy forecasting model with trend charts.</p></div></details>
+
+      <details class="project-item"><summary>16. Customer Segmentation</summary><div class="project-details"><p><strong>📌 Description:</strong> Group customers based on purchasing behavior for targeted marketing.</p><p><strong>📂 Dataset:</strong> Mall Customer Dataset</p><p><strong>⚙️ Algorithm:</strong> K-Means Clustering</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn, Matplotlib</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Clustering</li><li>Cluster analysis</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Customer segments visualized as clusters.</p></div></details>
+
+      <details class="project-item"><summary>17. Air Quality Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Predict air quality index based on pollution data.</p><p><strong>📂 Dataset:</strong> UCI Air Quality Dataset</p><p><strong>⚙️ Algorithm:</strong> Regression, Random Forest</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Air quality prediction model with charts.</p></div></details>
+
+      <details class="project-item"><summary>18. Weather Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Predict weather conditions using historical meteorological data.</p><p><strong>📂 Dataset:</strong> Weather Dataset (Kaggle)</p><p><strong>⚙️ Algorithm:</strong> Regression Models, ARIMA</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> A weather forecasting model with visualization graphs.</p></div></details>
+
+      <details class="project-item"><summary>19. Bank Loan Approval Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Predict whether a bank loan application will be approved or not.</p><p><strong>📂 Dataset:</strong> Loan Prediction Dataset (Kaggle)</p><p><strong>⚙️ Algorithm:</strong> Logistic Regression, Decision Tree</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> A loan approval predictor with accuracy report.</p></div></details>
+
+      <details class="project-item"><summary>20. Disease Outbreak Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Predict disease outbreaks using public health data.</p><p><strong>📂 Dataset:</strong> WHO / CDC Health Dataset</p><p><strong>⚙️ Algorithm:</strong> Time Series, Regression</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Matplotlib</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> A disease outbreak prediction model with trends.</p></div></details>
+
+      <details class="project-item"><summary>21. Sports Performance Analytics</summary><div class="project-details"><p><strong>📌 Description:</strong> Analyze athlete performance data to find trends and insights.</p><p><strong>📂 Dataset:</strong> Sports Stats Dataset (Kaggle)</p><p><strong>⚙️ Algorithm:</strong> EDA, Regression</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Matplotlib</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Sports analytics dashboard with insights.</p></div></details>
+
+      <details class="project-item"><summary>22. YouTube Trending Video Analysis</summary><div class="project-details"><p><strong>📌 Description:</strong> Analyze YouTube trending videos to discover patterns in views and engagement.</p><p><strong>📂 Dataset:</strong> YouTube Trending Dataset (Kaggle)</p><p><strong>⚙️ Algorithm:</strong> EDA, Clustering</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Matplotlib, Seaborn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Analysis</li><li>Visualization</li><li>Insights report</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Visual analysis of YouTube trending patterns.</p></div></details>
+
+      <details class="project-item"><summary>23. Hotel Booking Cancellation Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Predict whether a hotel booking will be cancelled.</p><p><strong>📂 Dataset:</strong> Hotel Booking Dataset (Kaggle)</p><p><strong>⚙️ Algorithm:</strong> Logistic Regression, Random Forest</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Booking cancellation predictor with metrics.</p></div></details>
+
+      <details class="project-item"><summary>24. Online Retail Market Basket Analysis</summary><div class="project-details"><p><strong>📌 Description:</strong> Find products frequently bought together in an online store.</p><p><strong>📂 Dataset:</strong> Online Retail Dataset (UCI)</p><p><strong>⚙️ Algorithm:</strong> Apriori Algorithm, Association Rules</p><p><strong>🛠️ Tools:</strong> Python, mlxtend, Pandas</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Association mining</li><li>Rule evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Association rules with support and confidence metrics.</p></div></details>
+
+      <details class="project-item"><summary>25. Taxi Demand Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Predict taxi demand in a city based on time and location data.</p><p><strong>📂 Dataset:</strong> NYC Taxi Dataset</p><p><strong>⚙️ Algorithm:</strong> Time Series, Regression</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Taxi demand prediction with heatmaps and charts.</p></div></details>
+
+      <details class="project-item"><summary>26. Flight Delay Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Predict whether a flight will be delayed and by how long.</p><p><strong>📂 Dataset:</strong> US Flight Dataset (Kaggle)</p><p><strong>⚙️ Algorithm:</strong> Random Forest, Gradient Boosting</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Flight delay predictor with accuracy and confusion matrix.</p></div></details>
+
+      <details class="project-item"><summary>27. Crop Yield Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Predict agricultural crop yield based on soil, weather, and fertilizer data.</p><p><strong>📂 Dataset:</strong> Crop Yield Dataset (Kaggle)</p><p><strong>⚙️ Algorithm:</strong> Regression, Random Forest</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Crop yield prediction model with feature importance analysis.</p></div></details>
+
+      <details class="project-item"><summary>28. Road Traffic Volume Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Predict traffic volume on roads at different times of day.</p><p><strong>📂 Dataset:</strong> Traffic Volume Dataset (UCI)</p><p><strong>⚙️ Algorithm:</strong> Time Series, Regression</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Traffic volume predictor with trend visualization.</p></div></details>
+
+      <details class="project-item"><summary>29. Customer Lifetime Value Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Predict how valuable a customer will be over their lifetime.</p><p><strong>📂 Dataset:</strong> E-commerce Customer Dataset</p><p><strong>⚙️ Algorithm:</strong> Regression, RFM Analysis</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> CLV prediction model with customer tier analysis.</p></div></details>
+
+      <details class="project-item"><summary>30. News Topic Classification</summary><div class="project-details"><p><strong>📌 Description:</strong> Automatically classify news articles into topics like sports, politics, etc.</p><p><strong>📂 Dataset:</strong> 20 Newsgroups Dataset</p><p><strong>⚙️ Algorithm:</strong> NLP, Naive Bayes, SVM</p><p><strong>🛠️ Tools:</strong> Python, NLTK, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> A news topic classifier with accuracy metrics.</p></div></details>
+
+      <details class="project-item"><summary>31. Music Genre Classification</summary><div class="project-details"><p><strong>📌 Description:</strong> Classify music tracks into genres using audio features.</p><p><strong>📂 Dataset:</strong> GTZAN Music Genre Dataset</p><p><strong>⚙️ Algorithm:</strong> KNN, SVM, CNN</p><p><strong>🛠️ Tools:</strong> Python, Librosa, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> A music genre classifier with accuracy report.</p></div></details>
+
+      <details class="project-item"><summary>32. Disease Risk Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Assess a patient's risk of developing a disease using health metrics.</p><p><strong>📂 Dataset:</strong> Health Risk Dataset (Kaggle)</p><p><strong>⚙️ Algorithm:</strong> Logistic Regression, Random Forest</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Disease risk assessment tool with probability scores.</p></div></details>
+
+      <details class="project-item"><summary>33. Restaurant Rating Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Predict restaurant ratings using reviews and metadata.</p><p><strong>📂 Dataset:</strong> Zomato Restaurant Dataset</p><p><strong>⚙️ Algorithm:</strong> Regression, NLP</p><p><strong>🛠️ Tools:</strong> Python, Pandas, NLTK, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> A restaurant rating predictor with accuracy metrics.</p></div></details>
+
+      <details class="project-item"><summary>34. Product Price Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Predict e-commerce product prices based on category and features.</p><p><strong>📂 Dataset:</strong> Mercari Price Dataset (Kaggle)</p><p><strong>⚙️ Algorithm:</strong> Linear Regression, Gradient Boosting</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> A product price predictor with error metrics.</p></div></details>
+
+      <details class="project-item"><summary>35. Insurance Claim Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Predict whether an insurance claim will be approved or the amount.</p><p><strong>📂 Dataset:</strong> Insurance Dataset (Kaggle)</p><p><strong>⚙️ Algorithm:</strong> Regression, Decision Tree</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> An insurance claim predictor with accuracy metrics.</p></div></details>
+
+      <details class="project-item"><summary>36. Credit Score Classification</summary><div class="project-details"><p><strong>📌 Description:</strong> Classify individuals into credit score categories (Good/Bad/Average).</p><p><strong>📂 Dataset:</strong> Credit Score Dataset (Kaggle)</p><p><strong>⚙️ Algorithm:</strong> Random Forest, Gradient Boosting</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> A credit score classifier with evaluation report.</p></div></details>
+
+      <details class="project-item"><summary>37. Retail Demand Forecasting</summary><div class="project-details"><p><strong>📌 Description:</strong> Forecast product demand for retail inventory management.</p><p><strong>📂 Dataset:</strong> Rossmann Store Sales Dataset</p><p><strong>⚙️ Algorithm:</strong> ARIMA, XGBoost</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> A demand forecasting model with trend charts.</p></div></details>
+
+      <details class="project-item"><summary>38. Smart City Traffic Analysis</summary><div class="project-details"><p><strong>📌 Description:</strong> Analyze city traffic data to optimize signal timing and reduce congestion.</p><p><strong>📂 Dataset:</strong> City Traffic Dataset (Kaggle)</p><p><strong>⚙️ Algorithm:</strong> Clustering, Time Series</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Matplotlib, Folium</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Analysis</li><li>Visualization</li><li>Insights report</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Traffic analysis dashboard with map visualizations.</p></div></details>
+
+      <details class="project-item"><summary>39. Social Media Engagement Prediction</summary><div class="project-details"><p><strong>📌 Description:</strong> Predict social media post engagement (likes, shares, comments).</p><p><strong>📂 Dataset:</strong> Social Media Dataset (Kaggle)</p><p><strong>⚙️ Algorithm:</strong> Regression, NLP</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Scikit-learn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Model training</li><li>Model evaluation</li><li>Visualization</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> Social media engagement predictor with metrics.</p></div></details>
+
+      <details class="project-item"><summary>40. Electric Vehicle Adoption Analysis</summary><div class="project-details"><p><strong>📌 Description:</strong> Analyze EV adoption trends across regions and predict future growth.</p><p><strong>📂 Dataset:</strong> EV Population Dataset (Kaggle)</p><p><strong>⚙️ Algorithm:</strong> EDA, Time Series, Regression</p><p><strong>🛠️ Tools:</strong> Python, Pandas, Matplotlib, Seaborn</p><div class="roadmap"><strong>🗺️ Roadmap:</strong><ol><li>Problem definition</li><li>Collect dataset</li><li>Data cleaning</li><li>EDA</li><li>Feature engineering</li><li>Analysis</li><li>Visualization</li><li>Insights report</li><li>Presentation</li></ol></div><p><strong>✅ Expected Output:</strong> EV adoption trend analysis with forecasting charts.</p></div></details>
+
+    </div>
+    <!-- End of DS project list -->
+
+  </section>
+  <!-- End of DATA SCIENCE PROJECTS page -->
+
+
+  <!-- ===========================================================
+       CAREER TIPS PAGE — COMING SOON
+  =========================================================== -->
+  <section id="career-tips" class="page">
+    <div class="inner-nav">
+      <div class="logo" onclick="goHome()">Projectra AI</div>
+      <button class="back-btn" onclick="goHome()">← Back to Home</button>
+    </div>
+    <div class="coming-soon-full">
+      <div class="cs-icon">🚀</div>
+      <h1>Career Tips</h1>
+      <p>We are working hard to bring you expert career guidance.</p>
+      <p class="cs-tag">— Coming Soon! —</p>
+      <p class="cs-sub">Dashboard with roadmaps, interview tips, and job guides will be added here.</p>
+    </div>
+  </section>
+
+
+  <!-- ===========================================================
+       RESOURCES & TOOLS PAGE — COMING SOON
+  =========================================================== -->
+  <section id="resources" class="page">
+    <div class="inner-nav">
+      <div class="logo" onclick="goHome()">Projectra AI</div>
+      <button class="back-btn" onclick="goHome()">← Back to Home</button>
+    </div>
+    <div class="coming-soon-full">
+      <div class="cs-icon">🛠️</div>
+      <h1>Resources &amp; Tools</h1>
+      <p>Curated tools, datasets, and tutorials are being compiled.</p>
+      <p class="cs-tag">— Coming Soon! —</p>
+      <p class="cs-sub">This section will include free tools, coding resources, and AI datasets.</p>
+    </div>
+  </section>
+
+
+  <!-- ===========================================================
+       SIGN UP / LOGIN PAGE
+       Centered on full page with two tabs: Sign Up and Login
+       Tabs let user switch between creating an account and logging in
+  =========================================================== -->
+  <section id="signup" class="page auth-page">
+
+    <!-- Inner navbar at top -->
+    <div class="inner-nav">
+      <div class="logo" onclick="goHome()">Projectra AI</div>
+      <button class="back-btn" onclick="goHome()">← Back to Home</button>
+    </div>
+
+    <!-- Auth card: centered box in the middle of the screen -->
+    <div class="auth-card">
+
+      <!-- TAB BUTTONS — Sign Up / Login switcher -->
+      <!-- onclick switches which form is visible -->
+      <div class="auth-tabs">
+        <!-- Sign Up tab — active by default -->
+        <button class="auth-tab active" id="tab-signup" onclick="showTab('signup-form', 'tab-signup')">Sign Up</button>
+        <!-- Login tab -->
+        <button class="auth-tab" id="tab-login" onclick="showTab('login-form', 'tab-login')">Login</button>
+      </div>
+
+      <!-- SIGN UP FORM — shown by default -->
+      <div id="signup-form" class="auth-form">
+        <p class="auth-subtitle">Create your Projectra AI account</p>
+        <input type="text" placeholder="Your Full Name">
+        <input type="email" placeholder="Email Address">
+        <input type="password" placeholder="Create Password">
+        <button class="submit-btn">Sign Up</button>
+        <p class="auth-switch">
+          Already have an account?
+          <!-- Clicking this switches to the Login tab -->
+          <span onclick="showTab('login-form', 'tab-login')">Login here</span>
+        </p>
+      </div>
+
+      <!-- LOGIN FORM — hidden by default, shown when Login tab is clicked -->
+      <div id="login-form" class="auth-form" style="display:none;">
+        <p class="auth-subtitle">Welcome back to Projectra AI</p>
+        <input type="email" placeholder="Email Address">
+        <input type="password" placeholder="Your Password">
+        <button class="submit-btn">Login</button>
+        <p class="auth-switch">
+          Don't have an account?
+          <span onclick="showTab('signup-form', 'tab-signup')">Sign up here</span>
+        </p>
+      </div>
+
+    </div>
+    <!-- End of auth-card -->
+
+  </section>
+  <!-- End of SIGN UP / LOGIN page -->
+
+
+  <!-- Our JavaScript file — loaded at the end so all HTML is ready first -->
+  <script src="{{ url_for('static',filename='js/script.js') }}"></script>
+  <script>
+    // Gentting page value from Flask
+    var currentPage="{{ page }}";
+    // If not home,open that section
+    if (currentPage && currentPage !="home") {
+      openPage(currentPage);
+    }
+  </script>
+
+</body>
+</html>
